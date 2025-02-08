@@ -57,25 +57,25 @@ const RoomPage = () => {
     socket.emit("play:audio", { id });
     console.log(audioRef);
     audioRef.current.play();
-  });
+  },[socket]);
 
   // Pause the audio
-  const pauseAudio = () => {
+  const pauseAudio = useCallback(() => {
     const id = 1;
     socket.emit("pause:audio", { id });
     audioRef.current.pause();
-  };
+  },[socket]);
 
   // Seek forward
-  const seekForward = () => {
+  const seekForward = useCallback(() => {
     const id = 1;
     console.log("done");
     socket.emit("seek:forward", { id });
     audioRef.current.currentTime += 10;
-  };
+  },[socket]);
 
   // Seek backward
-  const seekBackward = () => {
+  const seekBackward = useCallback(() => {
     const id = 1;
     console.log("done");
     socket.emit("seek:backward", { id });
@@ -83,7 +83,7 @@ const RoomPage = () => {
     if (audioRef.current.currentTime < 0) {
       audioRef.current.currentTime = 0; // Prevent negative time
     }
-  };
+  },[socket]);
 
   // Update current time as the audio plays
   const handleTimeUpdate = () => {
@@ -207,7 +207,7 @@ const RoomPage = () => {
     setSelectedSong(data.sN);
     setShowSong(data.rN);
     setMusicUrl(`${process.env.REACT_APP_BASE_PATH}${data.sN}.mp3`);
-  });
+  },[]);
   const handleConfirmSong1 = useCallback(({ mu }) => {
     setMusicUrl(mu);
     console.log(musicUrl);
