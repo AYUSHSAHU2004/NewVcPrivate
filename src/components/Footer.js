@@ -30,11 +30,6 @@ const Footer = () => {
     gap: '8px',
   };
 
-  const spaceXStyle = {
-    display: 'flex',
-    gap: '24px',
-  };
-
   const headingStyle = {
     fontSize: '24px',
     fontWeight: '800',
@@ -62,12 +57,6 @@ const Footer = () => {
     alignItems: 'center',
     textDecoration: 'none',
     color: 'white',
-  };
-
-  const logoStyle = {
-    height: '80px',
-    width: '72px',
-    filter: 'invert(100%) brightness(0)',
   };
 
   const bottomStyle = {

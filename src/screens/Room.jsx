@@ -57,7 +57,7 @@ const RoomPage = () => {
     socket.emit("play:audio", { id });
     console.log(audioRef);
     audioRef.current.play();
-  }, [selectedSong]);
+  }, [selectedSong,socket]);
 
   // Pause the audio
   const pauseAudio = () => {
@@ -173,11 +173,6 @@ const RoomPage = () => {
     await peer.setLocalDescription(ans);
   }, []);
 
-  const handlePlayer = useCallback(async () => {
-    const id = 1;
-    socket.emit("play:song", { id });
-    console.log(id);
-  }, []);
 
   useEffect(() => {
     peer.peer.addEventListener("track", async (ev) => {
@@ -185,7 +180,7 @@ const RoomPage = () => {
       console.log("GOT TRACKS!!");
       setRemoteStream(remoteStream[0]);
     });
-  }, []);
+  });
 
   const handlePlay = useCallback(({ id }) => {
     console.log(audioRef);
@@ -216,7 +211,7 @@ const RoomPage = () => {
   const handleConfirmSong1 = useCallback(({ mu }) => {
     setMusicUrl(mu);
     console.log(musicUrl);
-  }, [musicUrl]);
+  });
 
   useEffect(() => {
     socket.on("user:joined", handleUserJoined);
