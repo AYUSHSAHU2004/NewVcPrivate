@@ -57,7 +57,7 @@ const RoomPage = () => {
     socket.emit("play:audio", { id });
     console.log(audioRef);
     audioRef.current.play();
-  }, [selectedSong,socket]);
+  });
 
   // Pause the audio
   const pauseAudio = () => {
@@ -185,7 +185,7 @@ const RoomPage = () => {
   const handlePlay = useCallback(({ id }) => {
     console.log(audioRef);
     audioRef.current.play();
-  }, [musicUrl]);
+  });
   const handlePause = useCallback(({ id }) => {
     audioRef.current.pause();
   }, []);
@@ -207,11 +207,11 @@ const RoomPage = () => {
     setSelectedSong(data.sN);
     setShowSong(data.rN);
     setMusicUrl(`${process.env.REACT_APP_BASE_PATH}${data.sN}.mp3`);
-  }, [socket]);
+  });
   const handleConfirmSong1 = useCallback(({ mu }) => {
     setMusicUrl(mu);
     console.log(musicUrl);
-  });
+  },[musicUrl]);
 
   useEffect(() => {
     socket.on("user:joined", handleUserJoined);
