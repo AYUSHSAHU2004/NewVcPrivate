@@ -9,11 +9,11 @@ class PeerService {
               "stun:global.stun.twilio.com:3478",
             ],
           },
-          {
-            urls: "relay1.expressturn.com:3478", // Free TURN server
-            username: "efHGUVRXHK61N5NP3V", // Example username (Replace with your own)
-            credential: "PVyI5O1nUuIdQJXm", // Example password (Replace with your own)
-          },
+          // {
+          //   urls: "relay1.expressturn.com:3478", // Free TURN server
+          //   username: "efHGUVRXHK61N5NP3V", // Example username (Replace with your own)
+          //   credential: "PVyI5O1nUuIdQJXm", // Example password (Replace with your own)
+          // },
         ],
       });
     }
