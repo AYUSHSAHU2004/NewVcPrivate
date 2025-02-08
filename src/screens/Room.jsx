@@ -108,7 +108,7 @@ const RoomPage = () => {
 
   const handleCallUser = useCallback(async () => {
     const stream = await navigator.mediaDevices.getUserMedia({
-      audio: true,
+      audio: { echoCancellation: true, noiseSuppression: true },
       video: true,
     });
     const offer = await peer.getOffer();
@@ -122,7 +122,7 @@ const RoomPage = () => {
     async ({ from, offer, cfu }) => {
       setRemoteSocketId(from);
       const stream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
+        audio: { echoCancellation: true, noiseSuppression: true },
         video: true,
       });
       setMyStream(stream);
