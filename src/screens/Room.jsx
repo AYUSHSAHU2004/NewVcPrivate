@@ -29,7 +29,7 @@ const RoomPage = () => {
   useEffect(() => {
     const fetchSongList = async () => {
       try {
-        const response = await axios.get("http://localhost:8001/");
+        const response = await axios.get("https://backend-1-qeys.onrender.com/");
         setSongList(response.data); // Set the song list data
       } catch (error) {
         console.error("Error fetching song list:", error);
@@ -185,7 +185,7 @@ const RoomPage = () => {
   const handlePlay = useCallback(({ id }) => {
     console.log(audioRef);
     audioRef.current.play();
-  });
+  },[]);
   const handlePause = useCallback(({ id }) => {
     audioRef.current.pause();
   }, []);
