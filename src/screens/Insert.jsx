@@ -37,7 +37,7 @@ const Insert = () => {
 
     try {
       // Send the file and form data to the backend (change URL to your backend endpoint)
-      const response = await axios.post("http://localhost:8001/upload", formData, {
+      const response = await axios.post("https://backend-1-qeys.onrender.com/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data", // Tell the server we're sending a file
         },
